@@ -36,6 +36,10 @@ public class MorseSequence : MonoBehaviour
             {
                 CancelInvoke("ResetSequence");
             }
+            else
+            {
+                ResetSequence();
+            }
         }
         if (Input.GetKeyDown(KeyCode.Q))
         {
