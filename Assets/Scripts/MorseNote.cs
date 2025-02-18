@@ -1,8 +1,11 @@
+using System;
+using System.Collections;
 using UnityEngine;
-using UnityEngine.Rendering;
+using UnityEngine.UI;
 
 public class MorseNote : MonoBehaviour
 {
+    const float FADE_OUT_TIME = 0.5f;
     // Set by the [MorseSequence] that owns the note
     [HideInInspector]
     public MorseSequence morse_sequence;
@@ -19,7 +22,7 @@ public class MorseNote : MonoBehaviour
     // returns true except if dash was interrupted
     public virtual bool Activate()
     {
-        glowObj.SetActive(true);
+        glowObj.GetComponent<Image>().CrossFadeAlpha(1f, 0f, false);
         return true;
     }
 
@@ -32,6 +35,13 @@ public class MorseNote : MonoBehaviour
     public virtual void Reset()
     {
         complete = false;
-        glowObj.SetActive(false);
+        Coroutine fade = StartCoroutine(Fade());
     }
+
+    protected virtual IEnumerator Fade()
+    {
+        glowObj.GetComponent<Image>().CrossFadeAlpha(0f, FADE_OUT_TIME, false);
+        yield return new WaitForSeconds(FADE_OUT_TIME);
+    }
+
 }

@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 public class Dash : MorseNote
@@ -56,8 +57,13 @@ public class Dash : MorseNote
     // stop filling, reset glow width
     public override void Reset()
     {
-        base.Reset();
         filling = false;
+        base.Reset();
+    }
+
+    protected override IEnumerator Fade()
+    {
+        yield return base.Fade();
         glowRectTransform.SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal, DEFAULT_GLOW_WIDTH);
     }
 }
