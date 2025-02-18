@@ -31,18 +31,19 @@ public class Dash : MorseNote
         }
     }
 
-    public override void Activate()
+    public override bool Activate()
     {
         if (filling)
         {
-            Inturrpt();
-            return;
+            CancelInvoke("Complete");
+            return false;
         }
 
         base.Activate();
         // dashes complete after 3 seconds
         Invoke("Complete", DURATION);
         filling = true;
+        return true;
     }
 
     // stop filling
@@ -58,12 +59,5 @@ public class Dash : MorseNote
         base.Reset();
         filling = false;
         glowRectTransform.SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal, DEFAULT_GLOW_WIDTH);
-    }
-
-    // called when player clicks while dash is filling
-    public void Inturrpt()
-    {
-        CancelInvoke("Complete");
-        morse_sequence.ResetSequence();
     }
 }

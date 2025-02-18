@@ -16,9 +16,11 @@ public class MorseNote : MonoBehaviour
     }
 
     // called by [MorseSequence] when it's this note's turn in the sequence and lmb pressed
-    public virtual void Activate()
+    // returns true except if dash was interrupted
+    public virtual bool Activate()
     {
         glowObj.SetActive(true);
+        return true;
     }
 
     protected virtual void Complete()
@@ -29,7 +31,6 @@ public class MorseNote : MonoBehaviour
 
     public virtual void Reset()
     {
-        Debug.Log(this, glowObj);
         complete = false;
         glowObj.SetActive(false);
     }

@@ -31,7 +31,11 @@ public class MorseSequence : MonoBehaviour
         // if (Input.GetMouseButtonDown(0))
         if (Input.GetKeyDown(KeyCode.E))
         {
-            sequence[activeNoteIdx].Activate();
+            bool knockHeard = sequence[activeNoteIdx].Activate();
+            if (knockHeard)
+            {
+                CancelInvoke("ResetSequence");
+            }
         }
         if (Input.GetKeyDown(KeyCode.Q))
         {
@@ -45,6 +49,11 @@ public class MorseSequence : MonoBehaviour
     public void AdvanceSeqence()
     {
         activeNoteIdx++;
+        if (activeNoteIdx < sequence.Length)
+        {
+            // threaten to reset the sequence if the player takes too long
+            Invoke("ResetSequence", listenTime);
+        }
     }
 
     // called when player fails the sequence, either by taking too long or inturrupting a dash
