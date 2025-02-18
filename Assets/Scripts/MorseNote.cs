@@ -10,6 +10,11 @@ public class MorseNote : MonoBehaviour
     private bool complete = false;
 
 
+    protected virtual void Start()
+    {
+        Reset();
+    }
+
     // called by [MorseSequence] when it's this note's turn in the sequence and lmb pressed
     public virtual void Activate()
     {

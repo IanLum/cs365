@@ -14,7 +14,6 @@ public class MorseSequence : MonoBehaviour
     {
         foreach (MorseNote note in sequence)
         {
-            note.Reset();
             note.morse_sequence = this;
         }
     }

@@ -11,11 +11,13 @@ public class Dash : MorseNote
     private bool filling = false;
 
 
-    void Start()
+    protected override void Start()
     {
         dash_width = GetComponent<RectTransform>().rect.width;
         glowRectTransform = glowObj.GetComponent<RectTransform>();
+        base.Start();
     }
+
 
     void Update()
     {
