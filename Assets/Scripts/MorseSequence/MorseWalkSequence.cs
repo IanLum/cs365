@@ -13,7 +13,7 @@ public class MorseWalkSequence : MorseSequenceBase
     void Update()
     {
         if ((Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.A) ||
-             Input.GetKeyDown(KeyCode.S) || Input.GetKeyDown(KeyCode.D)) && !resetting)
+             Input.GetKeyDown(KeyCode.S) || Input.GetKeyDown(KeyCode.D)) && !resetting && canActivate)
              {
                 PerformWalk();  // Trigger the knock sequence
              }
