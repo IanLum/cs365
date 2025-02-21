@@ -1,5 +1,4 @@
 using UnityEngine;
-
 public class KnockableDoor : MonoBehaviour
 {
     public void Knocking()

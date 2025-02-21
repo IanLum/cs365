@@ -7,8 +7,7 @@ public class MorseNote : MonoBehaviour
 {
     public const float FADE_OUT_TIME = 0.5f;
     // Set by the [MorseSequence] that owns the note
-    [HideInInspector]
-    public MorseSequence morse_sequence;
+    [HideInInspector] public MorseSequenceBase morse_sequence;
     public GameObject glowObj;
     private bool complete = false;
 
@@ -22,6 +21,7 @@ public class MorseNote : MonoBehaviour
     // returns true except if dash was interrupted
     public virtual bool Activate()
     {
+        Debug.Log($"Activating Glow for {gameObject.name}");
         glowObj.GetComponent<Image>().CrossFadeAlpha(1f, 0f, false);
         return true;
     }
@@ -29,7 +29,7 @@ public class MorseNote : MonoBehaviour
     protected virtual void Complete()
     {
         complete = true;
-        morse_sequence.AdvanceSeqence();
+        morse_sequence.AdvanceSequence();
     }
 
     public virtual void Reset()

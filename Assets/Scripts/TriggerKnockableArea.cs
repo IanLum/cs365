@@ -3,7 +3,7 @@ using UnityEngine;
 public class TriggerKnockableArea : MonoBehaviour
 {
     //updates canKnock in MorseSequence
-    public MorseSequence morseSequence;
+    public MorseSequenceBase morseSequenceBase; // Reference to the base class
     public GameObject instructionPanel;
 
 
@@ -12,8 +12,24 @@ public class TriggerKnockableArea : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            morseSequence.canKnock = true;
-            instructionPanel.SetActive(true);
+            if (gameObject.CompareTag("KnockArea"))
+            {
+            MorseKnockSequence knockSequence = morseSequenceBase.GetComponent<MorseKnockSequence>();
+            if (knockSequence != null)
+            {
+                knockSequence.canActivate = true;
+                instructionPanel.SetActive(true);
+            }
+            }
+            else if (gameObject.CompareTag("WalkArea"))
+            {
+                MorseWalkSequence walkSequence = morseSequenceBase.GetComponent<MorseWalkSequence>();
+                if (walkSequence != null)
+                {
+                    walkSequence.canActivate = true;
+                    //instructionPanel.SetActive(true);
+                }
+            }
         }
     }
     //player is not allowed to knock outside the knockable area
@@ -21,7 +37,24 @@ public class TriggerKnockableArea : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            morseSequence.canKnock = false;
+            if (gameObject.CompareTag("KnockArea"))
+            {
+                MorseKnockSequence knockSequence = morseSequenceBase.GetComponent<MorseKnockSequence>();
+                if (knockSequence != null)
+                {
+                    knockSequence.canActivate = false;
+                    instructionPanel.SetActive(false);
+                }
+            }
+            else if (gameObject.CompareTag("WalkArea"))
+            {
+                MorseWalkSequence walkSequence = morseSequenceBase.GetComponent<MorseWalkSequence>();
+                if (walkSequence != null)
+                {
+                    walkSequence.canActivate = false;
+                    //instructionPanel.SetActive(false);
+                }
+            }
         }
     }
 }
