@@ -9,6 +9,8 @@ public class MorseSequence : MonoBehaviour
     public const float listenTime = 0.5f;
     private int activeNoteIdx = 0;
 
+    private bool reseting = false;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -29,7 +31,7 @@ public class MorseSequence : MonoBehaviour
     void HandleInputDetection()
     {
         // if (Input.GetMouseButtonDown(0))
-        if (Input.GetKeyDown(KeyCode.E))
+        if (Input.GetKeyDown(KeyCode.E) && !reseting)
         {
             bool knockHeard = sequence[activeNoteIdx].Activate();
             if (knockHeard)
@@ -63,10 +65,17 @@ public class MorseSequence : MonoBehaviour
     // called when player fails the sequence, either by taking too long or inturrupting a dash
     public void ResetSequence()
     {
+        reseting = true;
         activeNoteIdx = 0;
         foreach (MorseNote note in sequence)
         {
             note.Reset();
         }
+        Invoke("ResetFinished", MorseNote.FADE_OUT_TIME);
+    }
+
+    public void ResetFinished()
+    {
+        reseting = false;
     }
 }

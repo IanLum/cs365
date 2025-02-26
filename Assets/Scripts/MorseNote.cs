@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class MorseNote : MonoBehaviour
 {
-    const float FADE_OUT_TIME = 0.5f;
+    public const float FADE_OUT_TIME = 0.5f;
     // Set by the [MorseSequence] that owns the note
     [HideInInspector]
     public MorseSequence morse_sequence;
