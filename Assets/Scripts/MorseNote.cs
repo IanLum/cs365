@@ -21,13 +21,16 @@ public class MorseNote : MonoBehaviour
 
     protected virtual void Start()
     {
-        Reset();
+        // Reset();
+        return;
     }
 
     // called by [MorseSequence] when it's this note's turn in the sequence and lmb pressed
     // returns true except if dash was interrupted
     public virtual bool Activate()
     {
+        // this.gameObject.SetActive(true);
+        this.gameObject.GetComponent<CanvasRenderer>().SetAlpha(1);
         glowImg.GetComponent<Image>().CrossFadeAlpha(1f, 0f, false);
         lightObj.intensity = DEFAULT_LIGHT_INTENSITY;
         return true;
@@ -40,17 +43,21 @@ public class MorseNote : MonoBehaviour
         morse_sequence.AdvanceSeqence();
     }
 
-    public virtual void Reset()
+    public virtual void Reset(bool hidden)
     {
         complete = false;
-        Coroutine fade = StartCoroutine(Fade());
+        Coroutine fade = StartCoroutine(Fade(hidden));
     }
 
-    protected virtual IEnumerator Fade()
+    protected virtual IEnumerator Fade(bool hidden)
     {
         lightObj.DOIntensity(0, FADE_OUT_TIME / 3);
         glowImg.GetComponent<Image>().CrossFadeAlpha(0f, FADE_OUT_TIME, false);
         yield return new WaitForSeconds(FADE_OUT_TIME);
+        if (hidden)
+        {
+            this.gameObject.GetComponent<CanvasRenderer>().SetAlpha(0);
+        }
     }
 
     void Flash()

@@ -5,6 +5,7 @@ using UnityEngine.XR;
 public class MorseSequence : MonoBehaviour
 {
     public MorseNote[] sequence;
+    public bool hidden;
     // Time between notes that you can wait before the sequence resets
     public const float listenTime = 0.5f;
     private int activeNoteIdx = 0;
@@ -18,6 +19,7 @@ public class MorseSequence : MonoBehaviour
         {
             note.morse_sequence = this;
         }
+        Invoke("ResetSequence", 0f);
     }
 
     // Update is called once per frame
@@ -69,7 +71,7 @@ public class MorseSequence : MonoBehaviour
         activeNoteIdx = 0;
         foreach (MorseNote note in sequence)
         {
-            note.Reset();
+            note.Reset(hidden);
         }
         Invoke("ResetFinished", MorseNote.FADE_OUT_TIME);
     }
