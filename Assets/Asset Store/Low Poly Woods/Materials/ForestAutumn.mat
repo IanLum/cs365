@@ -27,7 +27,8 @@ Material:
   m_ValidKeywords:
   - _DISABLE_SSR_TRANSPARENT
   - _NORMALMAP_TANGENT_SPACE
-  m_InvalidKeywords: []
+  m_InvalidKeywords:
+  - _GLOSSYREFLECTIONS_OFF
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
@@ -254,6 +255,7 @@ Material:
     - _Metallic: 0
     - _MetallicRemapMax: 0
     - _MetallicRemapMin: 0
+    - _Mode: 0
     - _NormalMapSpace: 0
     - _NormalScale: 1
     - _ObjectSpaceUVMapping: 0
@@ -311,6 +313,7 @@ Material:
     - _UVBase: 0
     - _UVDetail: 0
     - _UVEmissive: 0
+    - _UVSec: 0
     - _UseEmissiveIntensity: 0
     - _UseShadowThreshold: 0
     - _WorkflowMode: 1
@@ -340,7 +343,7 @@ Material:
     - _UVMappingMaskEmissive: {r: 1, g: 0, b: 0, a: 0}
   m_BuildTextureStacks: []
   m_AllowLocking: 1
---- !u!114 &4432206590711937047
+--- !u!114 &2035197190457115297
 MonoBehaviour:
   m_ObjectHideFlags: 11
   m_CorrespondingSourceObject: {fileID: 0}
