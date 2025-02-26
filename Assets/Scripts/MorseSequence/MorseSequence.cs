@@ -31,7 +31,7 @@ public class MorseSequence : MonoBehaviour
         }
         //get the animator
         animator = arm.GetComponent<Animator>();
-        invoke("ResetSequence", 0f);
+        Invoke("ResetSequence", 0f);
     }
   
             // Update is called once per frame
