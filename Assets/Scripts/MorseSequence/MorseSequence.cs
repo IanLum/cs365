@@ -6,6 +6,7 @@ public class MorseSequence : MonoBehaviour
 {
     public MorseNote[] sequence;
     public Door doorObj;
+    public bool hidden;
     //records if the player is in the knockable area. It is updated in TriggerKnockableArea
     public bool canKnock = false;
     [SerializeField] private bool closeTrigger = false;
@@ -30,6 +31,7 @@ public class MorseSequence : MonoBehaviour
         }
         //get the animator
         animator = arm.GetComponent<Animator>();
+        invoke("ResetSequence", 0f);
     }
   
             // Update is called once per frame
@@ -102,7 +104,7 @@ public class MorseSequence : MonoBehaviour
         activeNoteIdx = 0;
         foreach (MorseNote note in sequence)
         {
-            note.Reset();
+            note.Reset(hidden);
         }
     }
 
