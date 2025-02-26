@@ -6,10 +6,10 @@ public class Dot : MorseNote
     public override bool Activate()
     {
         base.Activate();
-        // Slight delay on Complete call to allow [MorseeSequence] to
+        // One frame delay on Complete call to allow [MorseeSequence] to
         // sucessfully hear a knock before listening for the next knock.
         // See invoke calls on "ResetSequence"
-        Invoke("Complete", 0.1f);
+        Invoke("Complete", 0f);
         return true;
     }
 }

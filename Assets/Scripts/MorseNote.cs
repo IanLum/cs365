@@ -1,15 +1,21 @@
 using System;
 using System.Collections;
+using DG.Tweening;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class MorseNote : MonoBehaviour
 {
     public const float FADE_OUT_TIME = 0.5f;
+    // Unkown units, not lumens
+    const int DEFAULT_LIGHT_INTENSITY = 400;
+    const int FLASH_LIGHT_INTENSITY = 2000;
+    const float FLASH_DURATION = 0.3f;
     // Set by the [MorseSequence] that owns the note
     [HideInInspector]
     public MorseSequence morse_sequence;
-    public GameObject glowObj;
+    public GameObject glowImg;
+    public Light lightObj;
     private bool complete = false;
 
 
@@ -22,13 +28,15 @@ public class MorseNote : MonoBehaviour
     // returns true except if dash was interrupted
     public virtual bool Activate()
     {
-        glowObj.GetComponent<Image>().CrossFadeAlpha(1f, 0f, false);
+        glowImg.GetComponent<Image>().CrossFadeAlpha(1f, 0f, false);
+        lightObj.intensity = DEFAULT_LIGHT_INTENSITY;
         return true;
     }
 
     protected virtual void Complete()
     {
         complete = true;
+        Flash();
         morse_sequence.AdvanceSeqence();
     }
 
@@ -40,8 +48,15 @@ public class MorseNote : MonoBehaviour
 
     protected virtual IEnumerator Fade()
     {
-        glowObj.GetComponent<Image>().CrossFadeAlpha(0f, FADE_OUT_TIME, false);
+        lightObj.DOIntensity(0, FADE_OUT_TIME / 3);
+        glowImg.GetComponent<Image>().CrossFadeAlpha(0f, FADE_OUT_TIME, false);
         yield return new WaitForSeconds(FADE_OUT_TIME);
+    }
+
+    void Flash()
+    {
+        lightObj.intensity = FLASH_LIGHT_INTENSITY;
+        lightObj.DOIntensity(DEFAULT_LIGHT_INTENSITY, FLASH_DURATION);
     }
 
 }

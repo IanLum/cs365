@@ -15,7 +15,7 @@ public class Dash : MorseNote
     protected override void Start()
     {
         dash_width = GetComponent<RectTransform>().rect.width;
-        glowRectTransform = glowObj.GetComponent<RectTransform>();
+        glowRectTransform = glowImg.GetComponent<RectTransform>();
         base.Start();
     }
 
