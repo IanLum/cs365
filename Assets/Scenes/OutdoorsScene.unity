@@ -703,9 +703,17 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -646874606815247751, guid: 740cb0850bb87b043ad9be43d37d6af4, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 740cb0850bb87b043ad9be43d37d6af4, type: 3}
       propertyPath: m_Name
       value: Akai arm new
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 740cb0850bb87b043ad9be43d37d6af4, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1048793309308852666, guid: 740cb0850bb87b043ad9be43d37d6af4, type: 3}
       propertyPath: 'm_Bones.Array.data[4]'
@@ -759,17 +767,25 @@ PrefabInstance:
       propertyPath: 'm_Bones.Array.data[64]'
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 7036213049465896255, guid: 740cb0850bb87b043ad9be43d37d6af4, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8879528566716807029, guid: 740cb0850bb87b043ad9be43d37d6af4, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.004
+      value: 0.08
       objectReference: {fileID: 0}
     - target: {fileID: 8879528566716807029, guid: 740cb0850bb87b043ad9be43d37d6af4, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.073
+      value: -0.19
       objectReference: {fileID: 0}
     - target: {fileID: 8879528566716807029, guid: 740cb0850bb87b043ad9be43d37d6af4, type: 3}
       propertyPath: m_LocalPosition.z
       value: 0.057
+      objectReference: {fileID: 0}
+    - target: {fileID: 8916979045543815761, guid: 740cb0850bb87b043ad9be43d37d6af4, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects:
