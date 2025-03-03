@@ -15,7 +15,7 @@ public class Dash : MorseNote
     protected override void Start()
     {
         dash_width = GetComponent<RectTransform>().rect.width;
-        glowRectTransform = glowObj.GetComponent<RectTransform>();
+        glowRectTransform = glowImg.GetComponent<RectTransform>();
         base.Start();
     }
 
@@ -55,15 +55,15 @@ public class Dash : MorseNote
     }
 
     // stop filling, reset glow width
-    public override void Reset()
+    public override void Reset(bool hidden)
     {
         filling = false;
-        base.Reset();
+        base.Reset(hidden);
     }
 
-    protected override IEnumerator Fade()
+    protected override IEnumerator Fade(bool hidden)
     {
-        yield return base.Fade();
+        yield return base.Fade(hidden);
         glowRectTransform.SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal, DEFAULT_GLOW_WIDTH);
     }
 }
