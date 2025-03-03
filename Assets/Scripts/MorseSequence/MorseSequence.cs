@@ -1,4 +1,5 @@
 using System.Runtime.CompilerServices;
+using System.Threading;
 using UnityEngine;
 using UnityEngine.XR;
 
@@ -7,14 +8,14 @@ public class MorseSequence : MonoBehaviour
     public MorseNote[] sequence;
     public Door doorObj;
     public bool hidden;
-    //records if the player is in the knockable area. It is updated in TriggerKnockableArea
+    //records if the player is in the knockable range. It is updated in RaycastKnock
     public bool canKnock = false;
     [SerializeField] private bool closeTrigger = false;
     // Time between notes that you can wait before the sequence resets
     public const float listenTime = 0.5f;
     private int activeNoteIdx = 0;
     [SerializeField] private AudioClip beep;
-
+    private int count;
     //call the arm object that has the animator
     public GameObject arm;
     public Animator animator;
@@ -47,9 +48,21 @@ public class MorseSequence : MonoBehaviour
     // either glow the next note or fail if during a dash
     void HandleInputDetection()
     {
+        //shows the tutorial until player press the "e" for the firs time
+        if (count == 0)
+        {
+            tutorialPanel.SetActive(true);
+        }
+        else
+        {
+            tutorialPanel.SetActive(false);
+        }
+
         // if (Input.GetMouseButtonDown(0))
         if (Input.GetKeyDown(KeyCode.E) && !resetting)
         {
+            //ToggleInstructionPanel();
+            count++;
             //if press "E" set to speedbag
             animator.SetTrigger("KnockTrigger");
 
@@ -59,11 +72,6 @@ public class MorseSequence : MonoBehaviour
                 AudioSource.PlayClipAtPoint(beep, transform.position, 1f);
                 CancelInvoke("ResetSequence");
 
-                if (tutorialPanel != null)
-                {
-                    tutorialPanel.SetActive(false);
-                }
-                     
             }
             else
             {
@@ -71,11 +79,14 @@ public class MorseSequence : MonoBehaviour
                 ResetSequence();
             }
         }
+ 
         if (Input.GetKeyDown(KeyCode.Q))
         {
             ResetSequence();
         }
     }
+
+
 
     // called by morse note upon completion (immediate for dot, after wait time for dash)
     // go to next idx
