@@ -5,8 +5,7 @@ TagManager:
   serializedVersion: 3
   tags:
   - CinemachineTarget
-  - KnockArea
-  - WalkArea
+  - Obstacle
   layers:
   - Default
   - TransparentFX
