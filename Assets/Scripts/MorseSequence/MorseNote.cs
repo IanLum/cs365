@@ -40,7 +40,7 @@ public class MorseNote : MonoBehaviour
     {
         complete = true;
         Flash();
-        morse_sequence.AdvanceSeqence();
+        morse_sequence.AdvanceSequence();
     }
 
     public virtual void Reset(bool hidden)
