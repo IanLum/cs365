@@ -16,7 +16,7 @@ public class MorseNote : MonoBehaviour
     public MorseSequence morse_sequence;
     public GameObject glowImg;
     public Light lightObj;
-    private bool complete = false;
+    //private bool complete = false;
 
 
     protected virtual void Start()
@@ -38,14 +38,14 @@ public class MorseNote : MonoBehaviour
 
     protected virtual void Complete()
     {
-        complete = true;
+        //complete = true;
         Flash();
-        morse_sequence.AdvanceSeqence();
+        morse_sequence.AdvanceSequence();
     }
 
     public virtual void Reset(bool hidden)
     {
-        complete = false;
+        //complete = false;
         Coroutine fade = StartCoroutine(Fade(hidden));
     }
 
