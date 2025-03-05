@@ -8,7 +8,6 @@ public class AudioSequenceEmitter : MonoBehaviour
     const float TIME_BETWEEN_SEQUENCE = 4f;
     public enum Notes { DOT, DASH };
     public AudioSource audioSource;
-    public AudioClip audioClip;
     public Notes[] sequence;
     void Start()
     {
@@ -22,7 +21,7 @@ public class AudioSequenceEmitter : MonoBehaviour
             foreach (Notes note in sequence)
             {
                 float waitTime = (note == Notes.DOT) ? DOT_TIME : DASH_TIME;
-                audioSource.PlayOneShot(audioClip);
+                audioSource.Play();
                 yield return new WaitForSeconds(waitTime);
             }
             yield return new WaitForSeconds(TIME_BETWEEN_SEQUENCE);
