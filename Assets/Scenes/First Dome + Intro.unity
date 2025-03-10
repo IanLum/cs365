@@ -3310,6 +3310,63 @@ MonoBehaviour:
   blendDistance: 0
   weight: 1
   sharedProfile: {fileID: 11400000, guid: e6435d5ade635a144827b126fb251167, type: 2}
+--- !u!1001 &319834871
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 2647299067626768704, guid: 3e5941109916f7f45bcf073618bd8fc0, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 2.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 2647299067626768704, guid: 3e5941109916f7f45bcf073618bd8fc0, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2647299067626768704, guid: 3e5941109916f7f45bcf073618bd8fc0, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -15.18
+      objectReference: {fileID: 0}
+    - target: {fileID: 2647299067626768704, guid: 3e5941109916f7f45bcf073618bd8fc0, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2647299067626768704, guid: 3e5941109916f7f45bcf073618bd8fc0, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2647299067626768704, guid: 3e5941109916f7f45bcf073618bd8fc0, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2647299067626768704, guid: 3e5941109916f7f45bcf073618bd8fc0, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2647299067626768704, guid: 3e5941109916f7f45bcf073618bd8fc0, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2647299067626768704, guid: 3e5941109916f7f45bcf073618bd8fc0, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2647299067626768704, guid: 3e5941109916f7f45bcf073618bd8fc0, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3456170582392804346, guid: 3e5941109916f7f45bcf073618bd8fc0, type: 3}
+      propertyPath: m_Name
+      value: BendTree
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 3e5941109916f7f45bcf073618bd8fc0, type: 3}
 --- !u!1001 &445164709
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5738,3 +5795,4 @@ SceneRoots:
   - {fileID: 288400864}
   - {fileID: 1611309193}
   - {fileID: 193240486}
+  - {fileID: 319834871}
