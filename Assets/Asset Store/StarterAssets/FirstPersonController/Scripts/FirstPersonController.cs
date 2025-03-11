@@ -13,7 +13,7 @@ namespace StarterAssets
 	{
 		[Header("Player")]
 		[Tooltip("Move speed of the character in m/s")]
-		public float MoveSpeed = 4.0f;
+		public float MoveSpeed = 2.5f;
 		[Tooltip("Sprint speed of the character in m/s")]
 		public float SprintSpeed = 6.0f;
 		[Tooltip("Rotation speed of the character")]
@@ -153,8 +153,12 @@ namespace StarterAssets
 
 		private void Move()
 		{
-			// set target speed based on move speed, sprint speed and if sprint is pressed
-			float targetSpeed = _input.sprint ? SprintSpeed : MoveSpeed;
+			// DISABLE SPRINT
+
+			//// set target speed based on move speed, sprint speed and if sprint is pressed
+			//float targetSpeed = _input.sprint ? SprintSpeed :
+
+			float targetSpeed = MoveSpeed;
 
 			// a simplistic acceleration and deceleration designed to be easy to remove, replace, or iterate upon
 
@@ -211,12 +215,14 @@ namespace StarterAssets
 					_verticalVelocity = -2f;
 				}
 
-				// Jump
-				if (_input.jump && _jumpTimeoutDelta <= 0.0f)
-				{
-					// the square root of H * -2 * G = how much velocity needed to reach desired height
-					_verticalVelocity = Mathf.Sqrt(JumpHeight * -2f * Gravity);
-				}
+				// DISABLED JUMP
+
+				//// Jump
+				//if (_input.jump && _jumpTimeoutDelta <= 0.0f)
+				//{
+				//	// the square root of H * -2 * G = how much velocity needed to reach desired height
+				//	_verticalVelocity = Mathf.Sqrt(JumpHeight * -2f * Gravity);
+				//}
 
 				// jump timeout
 				if (_jumpTimeoutDelta >= 0.0f)
