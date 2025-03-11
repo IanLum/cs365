@@ -2,16 +2,21 @@ using UnityEngine;
 
 public class Door : MonoBehaviour
 {
-    [SerializeField] private Animator doorAnimator = null;
+    Animator doorAnimator;
+
+    public bool IsOpen = false;
+
     void Start()
     {
     }
     public void Open()
     {
-        doorAnimator.Play("DoorOpen", 0, 0.0f);
+        doorAnimator.Play("doorSlide", 0, 0.0f);
     }
     public void Close()
     {
-        doorAnimator.Play("DoorClose", 0, 0.0f);
+        doorAnimator.Play("doorSlide", 0, 0.0f);
     }
+
+
 }
