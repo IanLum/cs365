@@ -6,11 +6,12 @@ using UnityEngine.XR;
 public class MorseSequence : MonoBehaviour
 {
     public MorseNote[] sequence;
-    public Door doorObj;
+    //public Door doorObj;
     public bool hidden;
     private int activeNoteIdx = 0;
     private bool resetting = false;
     public const float listenTime = 0.5f;
+    public Openable openableObject; // Can be a Door, Tree, or Root
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -78,10 +79,9 @@ public class MorseSequence : MonoBehaviour
 
     protected virtual void OnSuccess()
     {
-        if (doorObj != null)
+        if (openableObject != null)
         {
-            doorObj.Open();
-            Debug.Log("Morse sequence completed, door opened.");
+            openableObject.Open();
         }
     }
 }
