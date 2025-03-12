@@ -42,7 +42,6 @@ public class Player : MonoBehaviour
     {
         Debug.Log("Player is walking.");
         AudioSource.PlayClipAtPoint(footstepSound, transform.position, 1f);
-        instructionPanel.SetActive(false);
         (currentArea as WalkSeqArea).morseSequence.HandleActivation();
     }
 
@@ -59,7 +58,11 @@ public class Player : MonoBehaviour
                 if (detectedArea != null)
                 {
                     currentArea = detectedArea;
-                    instructionPanel.SetActive(true);
+                    if (currentArea as KnockableArea)
+                    {
+                        instructionPanel.SetActive(true);
+                        return;
+                    }
                     return;
                 }
             }
