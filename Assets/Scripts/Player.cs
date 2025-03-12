@@ -2,8 +2,9 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
+    float INTERACT_MAX_DIST = 2.0f;
+    float INTERACT_MIN_DIST = 0.0f;
     public Camera playerCamera;
-    public float interactionDistance = 6f;
     public AudioClip footstepSound;
     public AudioClip knockSound;
     public GameObject instructionPanel;
@@ -50,9 +51,10 @@ public class Player : MonoBehaviour
         RaycastHit hit;
         Ray ray = new Ray(playerCamera.transform.position, playerCamera.transform.forward);
 
-        if (Physics.Raycast(ray, out hit, interactionDistance))
+        if (Physics.Raycast(ray, out hit, INTERACT_MAX_DIST))
         {
-            if (hit.distance > 1.5f)
+            Debug.Log(hit.distance);
+            if (hit.distance > INTERACT_MIN_DIST)
             {
                 BaseArea detectedArea = hit.collider.GetComponent<BaseArea>();
                 if (detectedArea != null)
