@@ -8,8 +8,8 @@ public class MorseNote : MonoBehaviour
 {
     public const float FADE_OUT_TIME = 0.5f;
     // Unkown units, not lumens
-    const int DEFAULT_LIGHT_INTENSITY = 400;
-    const int FLASH_LIGHT_INTENSITY = 2000;
+    const float DEFAULT_LIGHT_INTENSITY = 0.1f;
+    const float FLASH_LIGHT_INTENSITY = 0.4f;
     const float FLASH_DURATION = 0.3f;
     // Set by the [MorseSequence] that owns the note
     [HideInInspector]
