@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
-    float INTERACT_MAX_DIST = 2.0f;
+    float INTERACT_MAX_DIST = 2.5f;
     float INTERACT_MIN_DIST = 0.0f;
     public Camera playerCamera;
     public AudioClip footstepSound;
